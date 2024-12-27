@@ -64,6 +64,8 @@ public class T8103 extends JTMessage {
     private Map<Integer, String> parametersLong;
     @Schema(description = "字符型参数列表")
     private Map<Integer, String> parametersStr;
+    @Schema(description = "下发设备时区")
+    private ParamTimeZone paramTimeZone;
     @Schema(description = "图像分析报警参数设置(1078)")
     private ParamImageIdentifyAlarm paramImageIdentifyAlarm;
     @Schema(description = "特殊报警录像参数设置(1078)")
@@ -84,6 +86,9 @@ public class T8103 extends JTMessage {
     private ParamDSM paramDSM;
     @Schema(description = "高级驾驶辅助系统参数(苏标)")
     private ParamADAS paramADAS;
+    @Schema(description = "全局音量设置")
+    private ParamVoice paramVoice;
+
 
     public Map<Integer, Integer> getParametersInt() {
         return parametersInt;
@@ -189,6 +194,22 @@ public class T8103 extends JTMessage {
         this.paramVideoSpecialAlarm = paramVideoSpecialAlarm;
     }
 
+    public ParamTimeZone getParamTimeZone() {
+        return paramTimeZone;
+    }
+
+    public void setParamTimeZone(ParamTimeZone paramTimeZone) {
+        this.paramTimeZone = paramTimeZone;
+    }
+
+    public ParamVoice getParamVoice() {
+        return paramVoice;
+    }
+
+    public void setParamVoice(ParamVoice paramVoice) {
+        this.paramVoice = paramVoice;
+    }
+
     public T8103 build() {
         Map<Integer, Object> map = new TreeMap<>();
 
@@ -221,6 +242,10 @@ public class T8103 extends JTMessage {
             map.put(paramVideoSingle.key, paramVideoSingle);
         if (paramVideoSpecialAlarm != null)
             map.put(paramVideoSpecialAlarm.key, paramVideoSpecialAlarm);
+        if (paramTimeZone != null)
+            map.put(paramTimeZone.key, paramTimeZone);
+        if (paramVoice != null)
+            map.put(paramVoice.key, paramVoice);
 
         this.total = map.size();
         this.parameters = map;

@@ -140,6 +140,11 @@ public class ParameterConverter extends MapSchema<Number, Object> {
                 .addSchema(ParamDSM.key, ParamDSM.SCHEMA)//驾驶员状态监测系统参数,见表4-11
                 .addSchema(ParamTPMS.key, ParamTPMS.SCHEMA)//胎压监测系统参数,见表4-12
                 .addSchema(ParamBSD.key, ParamBSD.class)//盲区监测系统参数,见表4-13
+
+                // 时区偏移量,GMT+8
+                .addSchema(ParamTimeZone.key, ParamTimeZone.SCHEMA)
+                .addSchema(ParamVoice.key, ParamVoice.class)
+
                 //粤标
                 .addSchema(0xF370, NumberSchema.BYTE_INT)//智能视频协议版本信息,引入此智能视频协议版本信息方便平台进行版本控制初始版本是1,每次修订版本号都会递增（注：只支持获取,不支持设置）
         ;
